@@ -6,7 +6,7 @@ layout: default
   <h1>Projects</h1>
   <ul class="posts">
     {% for repository in site.github.public_repositories %}
-    <li><span><a href="{{ repository.html_url }}">{{ repository.name }}</span></li>
+    <li><span><a href="{{ repository.html_url }}">{{ repository.name }}</a></span></li>
     {% endfor %}
   </ul>
   <h1>Blog Posts</h1>
