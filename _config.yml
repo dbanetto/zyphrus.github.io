@@ -1,7 +1,7 @@
 name: zyphrus
 author: David Barnett
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 github: https://www.github.com/zyphrus
 about: Hello! I am a student at Victoria University in New Zealand studying software engineering
 
