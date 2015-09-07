@@ -132,6 +132,7 @@ div.right .post ul {
 #about {
     width: 100%;
     height: auto;
+    min-width: 75px;
 }
 
 div.col-sm-3 {
