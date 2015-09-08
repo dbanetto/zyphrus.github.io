@@ -130,9 +130,16 @@ div.right .post ul {
  */
 
 #about {
-    width: 100%;
-    height: auto;
-    min-width: 75px;
+    display: none;
+}
+
+@media (min-width: 786px) {
+    #about {
+        width: 100%;
+        height: auto;
+        min-width: 75px;
+        display: inherit;
+    }
 }
 
 div.col-sm-3 {
@@ -142,7 +149,13 @@ div.col-sm-3 {
 }
 
 #left-nav {
-    width: 15%;
+    width: 100%;
+}
+
+@media (min-width: 786px) {
+    #left-nav {
+        width: 15%;
+    }
 }
 
 div.col-sm-3 strong {
@@ -162,3 +175,4 @@ div.col-sm-3 img#about {
     margin-left: auto;
     margin-right: auto;
 }
+
