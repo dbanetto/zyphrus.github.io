@@ -3,16 +3,45 @@ layout: default
 ---
 
 <div id="home">
-  <h1>Projects</h1>
-  <ul class="posts">
-    {% for repository in site.github.public_repositories %}
-    <li><span><a href="{{ repository.html_url }}">{{ repository.name }}</a></span></li>
-    {% endfor %}
+  <h1>Recent Projects</h1>
+  <ul class="posts" id="pub-repos">
   </ul>
+  <script type="application/javascript">
+    window.onload = function () {
+      $.ajax({
+        type: "GET",
+        url: "https://api.github.com/users/{{ site.name }}/repos",
+        dataType: "json",
+        success: function(result) {
+          result.sort(function(a,b) {
+            return (Date.parse(b.pushed_at) - Date.parse(a.pushed_at));
+          });
+          var count = 0;
+          for(var i in result) {
+            if (result[i].fork) {
+              continue;
+            }
+
+            $("#pub-repos").append(
+              "<li><a href='" + result[i].html_url + "' target='_blank'>" +
+                  result[i].name + "</a></li>"
+            );
+            count = count + 1;
+
+            if (count >= {{ site.recent_projects }}) {
+              break;
+            }
+          }
+          console.log(result);
+        }
+      });
+    };
+  </script>
+
   <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 </div>

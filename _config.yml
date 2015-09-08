@@ -4,6 +4,7 @@ markdown: redcarpet
 highlighter: pygments
 github: https://www.github.com/zyphrus
 about: Hello! I am a student at Victoria University in New Zealand studying software engineering
+recent_projects: 5
 
 urls:
     - text: github
