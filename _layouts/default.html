@@ -27,6 +27,7 @@
                 <h4>{{ site.author }}</h4>
                 <strong>navigation</strong><br />
                 <a href="/">home</a> <br />
+                <a href="/projects.html">Projects</a> <br />
                 {% for i in site.urls %}
                 <a class="about" href="{{ i.url }}">{{ i.text }}</a><br />
                 {% endfor %}
@@ -44,10 +45,11 @@
                 {{ content }}
 
                 <footer>
-                    &copy; {{ site.author }} - {{ site.name }}
+                    &copy; {{ site.author }}
                     {% if site.github %}
-                    - <a href="{{ site.github }}">{{ site.github }}</a>
+                    - <a href="{{ site.github }}">{{ site.name }}</a>
                     {% endif %}
+                    - Jekyll theme based off <a href="https://github.com/mondss/simplygrey-jekyll">Simple Grey</a> by <a href="https://github.com/mondss">mondss</a>
                 </footer>
             </div>
 

@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+
+<h1>Public Repo</h1>
+<ul class="posts" id="pub-repos" style="list-style: none;">
+</ul>
+<script type="application/javascript">
+  window.onload = function () {
+    $.ajax({
+      type: "GET",
+      url: "https://api.github.com/users/{{ site.name }}/repos",
+      dataType: "json",
+      success: function(result) {
+        for(var i in result) {
+          repo = result[i];
+          if (repo.fork) {
+            continue;
+          }
+
+          $("#pub-repos").append(
+            "<li>" +
+            "<h2><a href='" + repo.html_url + "'>" +
+            repo.name +
+            "</a>" +
+            "<span class='small'> [" +
+            repo.language +
+            "]</span>" +
+            "</h2>" +
+            "<span>" +
+            repo.description +
+            "</span>" +
+            "</li>"
+          );
+
+        }
+        console.log(result);
+      }
+
+    });
+  };
+</script>
